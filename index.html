@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soil Monitoring Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .input-section {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .top-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      text-align: center;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #1b9fb6;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 8px;
+      width: 50%;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      cursor: pointer;
+      background: #007bff;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Soil Monitoring Dashboard</h1>
+  <div class="input-section">
+    <input id="sheetUrlInput" type="text" placeholder="Paste Google Sheet API/CSV Link Here" />
+    <button onclick="loadSheetData()">Load Data</button>
+  </div>
+  <div class="top-container">
+    <div class="card">
+      <h2>Moisture</h2>
+      <p id="moistureValue">--</p>
+    </div>
+    <div class="card">
+      <h2>Temperature</h2>
+      <p id="temperatureValue">--</p>
+    </div>
+    <div class="card">
+      <h2>pH Level</h2>
+      <p id="phValue">--</p>
+    </div>
+  </div>
+
+  <!--Table for Sensor History -->
+  <table>
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Moisture</th>
+        <th>Temperature</th>
+        <th>pH</th>
+      </tr>
+    </thead>
+    <tbody id="dataTableBody">
+      <!-- Dynamic Rows from Google Sheet appear here -->
+    </tbody>
+  </table>
+
+  <!-- ✅ External JS File -->
+  <script src="script.js"></script>
+</body>
+</html>
